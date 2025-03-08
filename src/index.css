@@ -51,20 +51,60 @@
   }
 
   body {
-    @apply bg-cloud-dark text-cloud-textLight antialiased;
+    @apply antialiased;
+  }
+  
+  /* Light theme (default) */
+  :root:not(.dark-theme) {
+    --cloud-bg: 195, 23%, 96%;
+    --cloud-text: 211, 24%, 21%;
+    --cloud-button: 200, 76%, 19%;
+    --cloud-light: 203, 69%, 83%;
+    --cloud-border: 200, 23%, 86%;
+  }
+  
+  /* Dark theme */
+  :root.dark-theme {
+    --cloud-bg: 211, 26%, 21%;
+    --cloud-text: 0, 0%, 100%;
+    --cloud-button: 200, 76%, 19%;
+    --cloud-light: 203, 69%, 83%;
+    --cloud-border: 211, 16%, 30%;
+  }
+  
+  body {
+    @apply text-cloud-text;
+    background-color: hsl(var(--cloud-bg));
+  }
+  
+  :root.dark-theme body {
     background-image: linear-gradient(to bottom, #283444, #1e2736);
+  }
+  
+  :root:not(.dark-theme) body {
+    background-image: linear-gradient(to bottom, #f5f7fa, #e5ebf2);
   }
 }
 
 @layer components {
   .glass-morph {
-    @apply bg-white/10 backdrop-blur-md border border-white/10 rounded-xl shadow-lg;
+    @apply backdrop-blur-md rounded-xl shadow-lg;
+    background-color: hsla(var(--cloud-bg), 0.3);
+    border: 1px solid hsla(var(--cloud-border), 0.2);
   }
   
   .tile {
-    @apply bg-white rounded-xl shadow-xl p-6 transition-all duration-300 h-full;
+    @apply rounded-xl shadow-xl p-6 transition-all duration-300 h-full;
     backdrop-filter: blur(8px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  :root.dark-theme .tile {
+    @apply bg-white;
+  }
+  
+  :root:not(.dark-theme) .tile {
+    @apply bg-white;
   }
   
   .tile:hover {
@@ -73,11 +113,23 @@
   }
   
   .cloud-btn {
-    @apply bg-cloud-button text-white py-2 px-4 rounded-md transition-all duration-300 hover:shadow-lg;
+    @apply py-2 px-4 rounded-md transition-all duration-300 hover:shadow-lg;
+    background-color: hsl(var(--cloud-button));
+    color: white;
   }
   
   .cloud-card {
-    @apply bg-white/80 backdrop-blur-md rounded-xl shadow-md p-6 border border-white/20;
+    backdrop-filter: blur(8px);
+    border: 1px solid hsla(var(--cloud-border), 0.2);
+    @apply rounded-xl shadow-md p-6;
+  }
+  
+  :root.dark-theme .cloud-card {
+    background-color: hsla(var(--cloud-bg), 0.3);
+  }
+  
+  :root:not(.dark-theme) .cloud-card {
+    background-color: hsla(var(--cloud-bg), 0.3);
   }
   
   .chat-bubble {
@@ -85,15 +137,32 @@
   }
   
   .user-bubble {
-    @apply bg-cloud-button text-white ml-auto;
+    background-color: hsl(var(--cloud-button));
+    @apply text-white ml-auto;
   }
   
   .assistant-bubble {
-    @apply bg-white/90 text-cloud-textDark mr-auto;
+    @apply mr-auto;
+  }
+  
+  :root.dark-theme .assistant-bubble {
+    @apply bg-white/90 text-cloud-textDark;
+  }
+  
+  :root:not(.dark-theme) .assistant-bubble {
+    @apply bg-cloud-light/90 text-cloud-textDark;
   }
   
   .sidebar-item {
-    @apply flex items-center gap-2 p-3 rounded-md hover:bg-white/10 transition-colors cursor-pointer;
+    @apply flex items-center gap-2 p-3 rounded-md transition-colors cursor-pointer;
+  }
+  
+  :root.dark-theme .sidebar-item:hover {
+    @apply bg-white/10;
+  }
+  
+  :root:not(.dark-theme) .sidebar-item:hover {
+    @apply bg-cloud-dark/10;
   }
   
   .sidebar-item.active {

@@ -58,7 +58,10 @@ export default {
 					light: '#BFD7EA',
 					button: '#0B3954',
 					textDark: '#3A4756',
-					textLight: '#FFFFFF'
+					textLight: '#FFFFFF',
+					bg: 'hsl(var(--cloud-bg))',
+					text: 'hsl(var(--cloud-text))',
+					border: 'hsl(var(--cloud-border))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
