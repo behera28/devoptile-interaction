@@ -24,7 +24,7 @@ const FAQ = ({ items }: FAQProps) => {
       {items.map((item, index) => (
         <div 
           key={index} 
-          className="cloud-card overflow-hidden transition-all duration-300 ease-in-out"
+          className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out border border-white/10"
         >
           <button
             className="w-full text-left p-4 flex justify-between items-center"
