@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { LinkedIn, Instagram, ExternalLink } from "lucide-react";
+import { Linkedin, Instagram, ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar";
 
 interface TeamMember {
@@ -54,7 +54,7 @@ const AboutUs = () => {
                       rel="noopener noreferrer"
                       className="social-icon-link"
                     >
-                      <LinkedIn size={24} />
+                      <Linkedin size={24} />
                     </a>
                   )}
                   {member.instagram && (
