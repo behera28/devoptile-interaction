@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Keedys+Sans+Regular&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,6 +54,7 @@
 
   body {
     @apply antialiased;
+    font-family: 'Keedys Sans Regular', sans-serif;
   }
   
   /* Light theme (default) */
@@ -78,11 +81,27 @@
   }
   
   :root.dark-theme body {
-    background-image: linear-gradient(to bottom, #283444, #1e2736);
+    background: linear-gradient(135deg, #283444 0%, #1e2736 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
   }
   
   :root:not(.dark-theme) body {
-    background-image: linear-gradient(to bottom, #f5f7fa, #e5ebf2);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e5ebf2 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
@@ -91,6 +110,7 @@
     @apply backdrop-blur-md rounded-xl shadow-lg;
     background-color: hsla(var(--cloud-bg), 0.3);
     border: 1px solid hsla(var(--cloud-border), 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
   .tile {
@@ -167,5 +187,85 @@
   
   .sidebar-item.active {
     @apply bg-white/10;
+  }
+  
+  /* New styles for the About Us page */
+  .team-card {
+    @apply rounded-xl shadow-xl overflow-hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .team-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Social icon links */
+  .social-icon-link {
+    @apply p-2 rounded-full bg-white/10 hover:bg-cloud-button/80 hover:text-white transition-all duration-300 transform;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .social-icon-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Animated navigation links */
+  .nav-link {
+    position: relative;
+    padding: 0.25rem 0;
+    overflow: hidden;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* For the font */
+  .font-keedy {
+    font-family: 'Keedys Sans Regular', sans-serif;
+  }
+}
+
+/* Additional keyframes for animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

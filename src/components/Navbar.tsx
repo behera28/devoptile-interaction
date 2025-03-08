@@ -30,14 +30,14 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className={`text-2xl font-semibold ${resolvedTheme === 'dark' ? 'text-white' : 'text-cloud-textDark'} transition-transform hover:scale-105`}>
+          <Link to="/" className={`text-2xl font-semibold font-keedy ${resolvedTheme === 'dark' ? 'text-white' : 'text-cloud-textDark'} transition-transform hover:scale-105`}>
             CloudMorph
           </Link>
           
           <div className="flex items-center space-x-8">
             <Link 
               to="/" 
-              className={`transition-all ${
+              className={`nav-link transition-all font-keedy ${
                 resolvedTheme === 'dark'
                   ? location.pathname === '/' ? 'text-white' : 'text-gray-300 hover:text-white'
                   : location.pathname === '/' ? 'text-cloud-textDark' : 'text-gray-600 hover:text-cloud-textDark'
@@ -47,7 +47,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/devops-assistant" 
-              className={`transition-all ${
+              className={`nav-link transition-all font-keedy ${
                 resolvedTheme === 'dark'
                   ? location.pathname === '/devops-assistant' ? 'text-white' : 'text-gray-300 hover:text-white'
                   : location.pathname === '/devops-assistant' ? 'text-cloud-textDark' : 'text-gray-600 hover:text-cloud-textDark'
@@ -57,13 +57,23 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/iac-translator" 
-              className={`transition-all ${
+              className={`nav-link transition-all font-keedy ${
                 resolvedTheme === 'dark'
                   ? location.pathname === '/iac-translator' ? 'text-white' : 'text-gray-300 hover:text-white'
                   : location.pathname === '/iac-translator' ? 'text-cloud-textDark' : 'text-gray-600 hover:text-cloud-textDark'
               }`}
             >
               IaC Translator
+            </Link>
+            <Link 
+              to="/about-us" 
+              className={`nav-link transition-all font-keedy ${
+                resolvedTheme === 'dark'
+                  ? location.pathname === '/about-us' ? 'text-white' : 'text-gray-300 hover:text-white'
+                  : location.pathname === '/about-us' ? 'text-cloud-textDark' : 'text-gray-600 hover:text-cloud-textDark'
+              }`}
+            >
+              About Us
             </Link>
             
             <button

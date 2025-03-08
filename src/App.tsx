@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import DevOpsAssistant from "./pages/DevOpsAssistant";
 import IaCTranslator from "./pages/IaCTranslator";
+import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/devops-assistant" element={<DevOpsAssistant />} />
             <Route path="/iac-translator" element={<IaCTranslator />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
